@@ -63,7 +63,7 @@
         ;
     var tooltip = d3.select("body").append("div").attr("class", "toolTip");
     // Parse the Data
-    d3.csv("new_data.csv", function(data) {
+    d3.csv("assets/fig_1-1_data.csv", function(data) {
 
       // List of subgroups = header of the csv files = soil condition here
       var subgroups = data.columns.slice(1)
@@ -151,9 +151,16 @@
                   return "#5AADF6"
                 }
               });
-
-
-
+              var group_text
+              var group_color
+              if(d[0] == 0){
+                group_text = "U.S. Parents"
+                group_color = "#003a70"
+              }else{
+                group_text = "U.S. Affiliates of Foreign MNCs"
+                group_color = "#8ac6ff"
+              }
+              console.log(group_text)
 
 
           // Replace hard coded vals (50, 90) with 50% of the tooltip wioth and height + a top buffer
@@ -161,7 +168,7 @@
                   .style("left", d3.event.pageX -80 + "px")
                   .style("top", d3.event.pageY - 60 + "px")
                   .style("display", "inline-block")
-                  .html((d.data.group) + "<br><span>" + ((d[1]-d[0])*100).toFixed(1) + "% </span>");
+                  .html("<span style='font-weight:700px;color:" +group_color+";'>"+group_text + "</span><br>"+(d.data.group) + "<br><span>" + ((d[1]-d[0])*100).toFixed(1) + "% </span>");
             })
         		.on("mouseout", function(d){
 
@@ -350,6 +357,7 @@
           // CREATE HOVER TOOLTIP WITH VERTICAL LINE //
           tooltip = d3.select(".graph-container").append("div")
             .attr('class', 'toolTip')
+            .attr('id', 'toolTip_16')
             //.style('position', 'absolute')
             //.style("background-color", "#e6e6e6")
             //.style('padding', 6)
@@ -385,7 +393,7 @@
 
               d3.selectAll(".mouse-per-line text")
                 .style("opacity", "0");
-              d3.selectAll("#tooltip")
+              d3.selectAll("#toolTip_16")
                 .style('display', 'none')
 
             })
@@ -601,10 +609,12 @@
             // CREATE HOVER TOOLTIP WITH VERTICAL LINE //
             tooltip = d3.select(".graph-container").append("div")
               .attr('class', 'toolTip')
+              .attr('id', "toolTip_17")
               .style('position', 'absolute')
               .style("background-color", "#e6e6e6")
               .style('padding', 6)
               .style('display', 'none')
+              .style('max-width', "200px")
 
             mouseG = svg.append("g")
               .attr("class", "mouse-over-effects");
@@ -644,7 +654,7 @@
                   .style("opacity", "0");
                 d3.selectAll(".mouse-per-line text")
                   .style("opacity", "0");
-                d3.selectAll("#toolTip")
+                d3.selectAll("#toolTip_17")
                   .style('display', 'none')
 
               })
@@ -653,7 +663,7 @@
                   .style("opacity", "1");
                 d3.selectAll(".mouse-per-line circle")
                   .style("opacity", "1");
-                d3.selectAll("#tooltip")
+                d3.selectAll("#toolTip_17")
                   .style('display', 'block')
               })
               .on('mousemove', function () { // update tooltip content, line, circles and text when mouse moves
@@ -718,13 +728,45 @@
               var xDate = xScale.invert(mouse[0])
               var bisect = d3.bisector(function (d) { return d.date; }).left
               var idx = bisect(d.values, xDate)
-              return d.key + ": " + (d.values[idx].share*100).toFixed() + "%"
+              return d.key + "<br>" + (d.values[idx].share*100).toFixed() + "%"
             })
         }
 
       })
   }
   function rd_figure(){
+    var legend_container = d3.select("#legend-container-rd")
+      .append("svg")
+        .attr("width", 50)
+        .attr("height", 50)
+
+        var us_text = legend_container
+        .append("text")
+        .text("Traditional Hubs")
+        .attr("y", 25)
+        .attr("x", 23);
+
+        var foreign_text = legend_container
+        .append("text")
+        .text("Non-traditional Hubs")
+        .attr("y", 25)
+        .attr("x", 147);
+
+        legend_container
+        .append("rect")
+        .attr("width", 16)
+        .attr("height", 16)
+        .attr("y", 13)
+        .attr("fill", "#003a70")
+
+        legend_container
+        .append("rect")
+        .attr("width", 16)
+        .attr("height", 16)
+        .attr("y", 13)
+        .attr("x", 125)
+        .attr("fill", "#f26d00")
+
     // set the dimensions and margins of the graph
        var margin = {
                top: 10,
@@ -843,7 +885,8 @@
                        .classed('y', true);
 
 
-
+                       d3.selectAll('#toolTip_rd')
+                       .style('display', 'none')
 
 
                        // create an overlay rectangle to draw the above objects on top of
@@ -852,7 +895,11 @@
                            .attr('width', width)
                            .attr('height', height)
                            .on('mouseover', () => focus.style('display', null))
-                           .on('mouseout', () => focus.style('display', 'none'))
+                           .on('mouseout', function(){
+                            focus.style('display', 'none')
+                            d3.select('#toolTip_rd')
+                            .style('display', 'none')
+                           })
                            .on('mousemove', tipMove);
 
                            // make the overlay rectangle transparent,
@@ -900,7 +947,7 @@
                                            .attr('y1', height)
                                            .attr('y2', 0 /*- y(d.n)*/);
 
-                                        d3.select('.toolTip')
+                                        d3.select('#toolTip_rd')
                                         .style('left', d3.event.pageX + 20 + "px")
                                         .style('top', d3.event.pageY + 20 + "px")
                                         .html(d.year)
