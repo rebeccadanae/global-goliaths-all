@@ -51,7 +51,7 @@
         .attr("x", 125)
         .attr("fill", "#8ac6ff")
 
-    var legend_svg = d3.select()
+
     var svg = d3.select("#graph_1_svg"),
         margin = {top: 20, right: 50, bottom: 20, left: 50},
         width = parseInt(d3.select('.graphsvg').style('width'))
@@ -188,6 +188,39 @@
 
   }
   function figure_16(){
+
+    var legend_container = d3.select("#legend-container-1-6")
+      .append("svg")
+        .attr("width", 50)
+        .attr("height", 50)
+
+        var us_text = legend_container
+        .append("text")
+        .text("U.S. Parents")
+        .attr("y", 25)
+        .attr("x", 23);
+
+        var foreign_text = legend_container
+        .append("text")
+        .text("U.S. Affiliates of Foreign MNCs")
+        .attr("y", 25)
+        .attr("x", 147);
+
+        legend_container
+        .append("rect")
+        .attr("width", 16)
+        .attr("height", 16)
+        .attr("y", 13)
+        .attr("fill", "#003a70")
+
+        legend_container
+        .append("rect")
+        .attr("width", 16)
+        .attr("height", 16)
+        .attr("y", 13)
+        .attr("x", 125)
+        .attr("fill", "#8ac6ff")
+
     var glines
       var mouseG
       var tooltip
