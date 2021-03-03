@@ -196,15 +196,15 @@
 
         var us_text = legend_container
         .append("text")
-        .text("U.S. Parents")
+        .text("Capital Expenditures")
         .attr("y", 25)
         .attr("x", 23);
 
         var foreign_text = legend_container
         .append("text")
-        .text("U.S. Affiliates of Foreign MNCs")
+        .text("Private Sector Employment")
         .attr("y", 25)
-        .attr("x", 147);
+        .attr("x", 172);
 
         legend_container
         .append("rect")
@@ -218,8 +218,8 @@
         .attr("width", 16)
         .attr("height", 16)
         .attr("y", 13)
-        .attr("x", 125)
-        .attr("fill", "#8ac6ff")
+        .attr("x", 150)
+        .attr("fill", "#f26d00")
 
     var glines
       var mouseG
@@ -451,7 +451,12 @@
           .append('div')
           .attr('class', 'dataText')
           .style('color', d => {
-            return color(d.key)
+
+
+              if(d.key=="Private Sector Employment"){
+                return "#f26d00"
+              }
+            return "#003a70"
           })
           .style('font-size', 20)
           .html(d => {
