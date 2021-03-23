@@ -196,37 +196,6 @@
   }
   function figure_16(){
 
-    var legend_container = d3.select("#legend-container-1-6")
-      .append("svg")
-        .attr("width", 50)
-        .attr("height", 50)
-
-        var us_text = legend_container
-        .append("text")
-        .text("Capital Expenditures")
-        .attr("y", 25)
-        .attr("x", 23);
-
-        var foreign_text = legend_container
-        .append("text")
-        .text("Private Sector Employment")
-        .attr("y", 25)
-        .attr("x", 172);
-
-        legend_container
-        .append("rect")
-        .attr("width", 16)
-        .attr("height", 16)
-        .attr("y", 13)
-        .attr("fill", "#003a70")
-
-        legend_container
-        .append("rect")
-        .attr("width", 16)
-        .attr("height", 16)
-        .attr("y", 13)
-        .attr("x", 150)
-        .attr("fill", "#f26d00")
 
     var glines
       var mouseG
