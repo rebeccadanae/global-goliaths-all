@@ -160,7 +160,6 @@
                 group_text = "U.S. Affiliates of Foreign MNCs"
                 group_color = "#8ac6ff"
               }
-              console.log(group_text)
 
 
           // Replace hard coded vals (50, 90) with 50% of the tooltip wioth and height + a top buffer
@@ -510,7 +509,6 @@
               share : +d.share
             }
           })
-          console.log(res);
 
           var xScale = d3.scaleTime()
             .domain(d3.extent(res, d=>d.date))
@@ -810,18 +808,15 @@
            .key(function(d) { return d.year;})
            .entries(data);
 
-        //console.log(sumstat);
          // Stack the data: each group will be represented on top of each other
          var mygroups = [ "Traditional Hubs", "Non-Traditional Hubs"] // list of group names
          var mygroup = [0,1] // list of group names
          var stackedData = d3.stack()
            .keys(mygroup)
            .value(function(d, key){
-             //console.log(d.values[key])
              return d.values[key].n
            })
            (sumstat)
-           //console.log(stackedData)
 
 
            // Add X axis --> it is a date format
@@ -985,7 +980,6 @@
         width = parseInt(d3.select('#graph_5_svg').style('width'))
 
 
-        console.log(width)
         var width = width - margin.left - margin.right,
         graphRatio = .6,
         height = width * graphRatio;
