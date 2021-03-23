@@ -312,6 +312,35 @@
               .attr('opacity', 0.3)
 
             g.select(".domain").remove()
+            if(width>400){
+              svg.append("text")
+              .text("Capital Expenditures")
+              .attr("y", 35)
+              .attr("x", 25)
+              .attr("fill", "#003A70")
+              .style("font-weight", 700)
+
+              svg.append("text")
+              .text("Private Sector Employment")
+              .attr("y", 190)
+              .attr("x", 25)
+              .attr("fill", "#f26d00")
+              .style("font-weight", 700)
+            }else{
+              svg.append("text")
+              .text("Capital Expenditures")
+              .attr("y", 25)
+              .attr("x", 10)
+              .attr("fill", "#003A70")
+              .style("font-weight", 700)
+
+              svg.append("text")
+              .text("Private Sector Employment")
+              .attr("y", 150)
+              .attr("x", 10)
+              .attr("fill", "#f26d00")
+              .style("font-weight", 700)
+            }
 
            })
 
