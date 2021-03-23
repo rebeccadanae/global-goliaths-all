@@ -731,37 +731,7 @@
       })
   }
   function rd_figure(){
-    var legend_container = d3.select("#legend-container-rd")
-      .append("svg")
-        .attr("width", 50)
-        .attr("height", 50)
-
-        var us_text = legend_container
-        .append("text")
-        .text("Traditional Hubs")
-        .attr("y", 25)
-        .attr("x", 23);
-
-        var foreign_text = legend_container
-        .append("text")
-        .text("Non-traditional Hubs")
-        .attr("y", 25)
-        .attr("x", 147);
-
-        legend_container
-        .append("rect")
-        .attr("width", 16)
-        .attr("height", 16)
-        .attr("y", 13)
-        .attr("fill", "#003a70")
-
-        legend_container
-        .append("rect")
-        .attr("width", 16)
-        .attr("height", 16)
-        .attr("y", 13)
-        .attr("x", 125)
-        .attr("fill", "#f26d00")
+  
 
     // set the dimensions and margins of the graph
        var margin = {
@@ -854,6 +824,36 @@
                .y0(function(d) { return y(d[0]); })
                .y1(function(d) { return y(d[1]); })
            )
+
+           if(width>400){
+             svg.append("text")
+             .text("Non-Traditional Hubs")
+             .attr("y", 45)
+             .attr("x", width-180)
+             .attr("fill", "#f26d00")
+             .style("font-weight", 700)
+
+             svg.append("text")
+             .text("Traditional Hubs")
+             .attr("y", height*(5/6))
+             .attr("x", width-160)
+             .attr("fill", "#ffffff")
+             .style("font-weight", 700)
+          }else{
+            svg.append("text")
+            .text("Non-Traditional Hubs")
+            .attr("y", 45)
+            .attr("x", width-180)
+            .attr("fill", "#f26d00")
+            .style("font-weight", 700)
+
+            svg.append("text")
+            .text("Traditional Hubs")
+            .attr("y", height-30)
+            .attr("x", width-160)
+            .attr("fill", "#ffffff")
+            .style("font-weight", 700)
+           }
 
            // Add a clipPath: everything out of this area won't be drawn.
            var clip = svg.append("defs").append("svg:clipPath")
