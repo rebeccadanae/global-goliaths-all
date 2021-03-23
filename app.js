@@ -105,7 +105,7 @@
             .attr("class", "bar")
             .attr("width",x.bandwidth())
             .on("mousemove", function(d){
-              console.log(d.data.us_parents)
+            
 /*
               d3.select(this)
               .attr("fill", function(d){
