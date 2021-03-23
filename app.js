@@ -105,6 +105,7 @@
             .attr("class", "bar")
             .attr("width",x.bandwidth())
             .on("mousemove", function(d){
+              console.log(d.data.us_parents)
 /*
               d3.select(this)
               .attr("fill", function(d){
@@ -135,7 +136,10 @@
                   .style("left", d3.event.pageX -80 + "px")
                   .style("top", d3.event.pageY - 60 + "px")
                   .style("display", "inline-block")
-                  .html("<span style='font-weight:700px;color:" +group_color+";'>"+group_text + "</span><br>"+(d.data.group) + "<br><span>" + ((d[1]-d[0])*100).toFixed(1) + "% </span>");
+                  .html(
+                  (d.data.group) + "<br><span style='font-weight:700px;color:" +
+                  group_color+";'>"+group_text + ": </span>" +
+                  ((d[1]-d[0])*100).toFixed(1) + "% <br><span style='font-weight:700px'>Total: </span>"+((Number(d.data.us_parents) + Number(d.data.us_affiliates))*100).toFixed(1)+"%");
             })
         		.on("mouseout", function(d){
               /*
