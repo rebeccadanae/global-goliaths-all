@@ -130,6 +130,12 @@ text {
   margin-left : auto;
 }
 
+.post-body table td {
+  border: 1px solid #d8d8d8;
+    padding: .625em .9375em;
+    font-family: franklin-gothic-urw,helvetica,sans-serif;
+}
+
 /* Mobile Styles */
 
 @media
