@@ -19,38 +19,6 @@
   }
 
   function figure_11(){
-    var legend_container = d3.select("#legend-container-1-1")
-      .append("svg")
-        .attr("width", 50)
-        .attr("height", 50)
-
-        var us_text = legend_container
-        .append("text")
-        .text("U.S. Parents")
-        .attr("y", 25)
-        .attr("x", 23);
-
-        var foreign_text = legend_container
-        .append("text")
-        .text("U.S. Affiliates of Foreign MNCs")
-        .attr("y", 25)
-        .attr("x", 147);
-
-        legend_container
-        .append("rect")
-        .attr("width", 16)
-        .attr("height", 16)
-        .attr("y", 13)
-        .attr("fill", "#003a70")
-
-        legend_container
-        .append("rect")
-        .attr("width", 16)
-        .attr("height", 16)
-        .attr("y", 13)
-        .attr("x", 125)
-        .attr("fill", "#8ac6ff")
-
 
     var svg = d3.select("#graph_1_svg"),
         margin = {top: 20, right: 50, bottom: 20, left: 50},
@@ -137,7 +105,7 @@
             .attr("class", "bar")
             .attr("width",x.bandwidth())
             .on("mousemove", function(d){
-
+/*
               d3.select(this)
               .attr("fill", function(d){
                 if(d[0] == 0){
@@ -150,7 +118,7 @@
 
                   return "#5AADF6"
                 }
-              });
+              });*/
               var group_text
               var group_color
               if(d[0] == 0){
@@ -170,7 +138,7 @@
                   .html("<span style='font-weight:700px;color:" +group_color+";'>"+group_text + "</span><br>"+(d.data.group) + "<br><span>" + ((d[1]-d[0])*100).toFixed(1) + "% </span>");
             })
         		.on("mouseout", function(d){
-
+              /*
               d3.select(this)
               .attr("fill", function(d){
                 if(d[0] == 0){
@@ -184,12 +152,44 @@
 
                 }
               });
-
+              */
               tooltip.style("display", "none");
 
 
           });
+          if(width>400){
+            svg.append("text")
+            .text("U.S. Affiliates of Foreign MNCs")
+            .attr("y", height/2-50)
+            .attr("x", 255)
+            .attr("text-anchor", "end")
+            .attr("fill", "#8ac6ff")
+            .style("font-weight", 700)
 
+            svg.append("text")
+            .text("U.S. Parents")
+            .attr("y", height/2+30)
+            .attr("x", 255)
+            .attr("text-anchor", "end")
+            .attr("fill", "#003a70")
+            .style("font-weight", 700)
+         }else{
+        svg.append("text")
+        .text("U.S. Affiliates of Foreign MNCs")
+        .attr("y", 35)
+        .attr("x", 50)
+        .attr("text-anchor", "start")
+        .attr("fill", "#8ac6ff")
+        .style("font-weight", 700)
+
+        svg.append("text")
+        .text("U.S. Parents")
+        .attr("y", height/2+30)
+        .attr("x", 50)
+        .attr("text-anchor", "start")
+        .attr("fill", "#003a70")
+        .style("font-weight", 700)
+         }
     })
 
   }
@@ -731,7 +731,7 @@
       })
   }
   function rd_figure(){
-  
+
 
     // set the dimensions and margins of the graph
        var margin = {
