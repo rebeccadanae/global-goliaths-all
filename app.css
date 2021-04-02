@@ -81,7 +81,7 @@ text {
   text-align : center;
 }
 
-.title {
+.title h1{
   font-family : "franklin-gothic-urw",
                 helvetica,
                 sans serif;
@@ -89,6 +89,13 @@ text {
   font-weight : 700;
 }
 
+.title h2{
+  font-family : "franklin-gothic-urw",
+                helvetica,
+                sans serif;
+  font-size   : 17px;
+  font-weight : 500;
+}
 .source-container {
   display     : inline-block;
   width       : 50%;
