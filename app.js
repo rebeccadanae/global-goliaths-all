@@ -105,7 +105,7 @@
             .attr("class", "bar")
             .attr("width",x.bandwidth())
             .on("mousemove", function(d){
-            
+
 /*
               d3.select(this)
               .attr("fill", function(d){
@@ -123,10 +123,10 @@
               var group_text
               var group_color
               if(d[0] == 0){
-                group_text = "U.S. Parents"
+                group_text = "U.S. parents"
                 group_color = "#003a70"
               }else{
-                group_text = "U.S. Affiliates of Foreign MNCs"
+                group_text = "U.S. arms of foreign-headquartered firms"
                 group_color = "#8ac6ff"
               }
 
@@ -163,7 +163,7 @@
           });
           if(width>400){
             svg.append("text")
-            .text("U.S. Affiliates of Foreign MNCs")
+            .text("U.S. arms of foreign-headquartered firms")
             .attr("y", height/2-50)
             .attr("x", 255)
             .attr("text-anchor", "end")
@@ -171,7 +171,7 @@
             .style("font-weight", 700)
 
             svg.append("text")
-            .text("U.S. Parents")
+            .text("U.S. parents")
             .attr("y", height/2+30)
             .attr("x", 255)
             .attr("text-anchor", "end")
@@ -179,7 +179,7 @@
             .style("font-weight", 700)
          }else{
         svg.append("text")
-        .text("U.S. Affiliates of Foreign MNCs")
+        .text("U.S. arms of foreign-headquartered firms")
         .attr("y", 35)
         .attr("x", 50)
         .attr("text-anchor", "start")
@@ -187,7 +187,7 @@
         .style("font-weight", 700)
 
         svg.append("text")
-        .text("U.S. Parents")
+        .text("U.S. parents")
         .attr("y", height/2+30)
         .attr("x", 50)
         .attr("text-anchor", "start")
@@ -286,28 +286,28 @@
             g.select(".domain").remove()
             if(width>400){
               svg.append("text")
-              .text("Capital Expenditures")
+              .text("Capital spending")
               .attr("y", 35)
               .attr("x", 25)
               .attr("fill", "#003A70")
               .style("font-weight", 700)
 
               svg.append("text")
-              .text("Private Sector Employment")
+              .text("Employment")
               .attr("y", 190)
               .attr("x", 25)
               .attr("fill", "#f26d00")
               .style("font-weight", 700)
             }else{
               svg.append("text")
-              .text("Capital Expenditures")
+              .text("Capital spending")
               .attr("y", 25)
               .attr("x", 10)
               .attr("fill", "#003A70")
               .style("font-weight", 700)
 
               svg.append("text")
-              .text("Private Sector Employment")
+              .text("Employment")
               .attr("y", 150)
               .attr("x", 10)
               .attr("fill", "#f26d00")
@@ -462,7 +462,7 @@
           .style('color', d => {
 
 
-              if(d.key=="Private Sector Employment"){
+              if(d.key=="Employment"){
                 return "#f26d00"
               }
             return "#003a70"
@@ -783,7 +783,7 @@
            .entries(data);
 
          // Stack the data: each group will be represented on top of each other
-         var mygroups = [ "Traditional Hubs", "Non-Traditional Hubs"] // list of group names
+         var mygroups = [ "Traditional Hubs", "Non-traditional Hubs"] // list of group names
          var mygroup = [0,1] // list of group names
          var stackedData = d3.stack()
            .keys(mygroup)
@@ -831,7 +831,7 @@
 
            if(width>400){
              svg.append("text")
-             .text("Non-Traditional Hubs")
+             .text("Non-traditional Hubs")
              .attr("y", 45)
              .attr("x", width-180)
              .attr("fill", "#f26d00")
@@ -845,7 +845,7 @@
              .style("font-weight", 700)
           }else{
             svg.append("text")
-            .text("Non-Traditional Hubs")
+            .text("Non-traditional Hubs")
             .attr("y", 45)
             .attr("x", width-180)
             .attr("fill", "#f26d00")
