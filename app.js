@@ -806,7 +806,7 @@
            .domain([0, d3.max(data, function(d) { return +d.n; })*1.7])
            .range([ height, 0 ]);
          svg.append("g")
-           .call(d3.axisLeft(y).tickSize(-width))
+           .call(d3.axisLeft(y).tickSize(-width).tickFormat(d3.format("$,d")))
            .attr("class", "y-axis");
 
 
