@@ -11,11 +11,21 @@
     });
   }
   function app() {
+    if(document.getElementById('graph_1_svg')){
     figure_11();
-    figure_16();
+}
+    if(document.getElementById('graph_2_svg')){
+      figure_16();
+    }
+    if(document.getElementById('graph_3_svg')){
     figure_17();
+  }
+    if(document.getElementById('graph_4_svg')){
     rd_figure();
+  }
+  if(document.getElementById('graph_5_svg')){
     figure_111();
+  }
   }
 
   function figure_11(){
