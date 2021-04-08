@@ -122,14 +122,45 @@
               });*/
               var group_text
               var group_color
+              var analytics_text
               if(d[0] == 0){
                 group_text = "U.S. parents"
                 group_color = "#003a70"
+                analytics_text = 'parents'
               }else{
                 group_text = "U.S. arms of foreign-headquartered firms"
                 group_color = "#8ac6ff"
+                analytics_text = 'firms'
               }
 
+              var analytics_group
+              switch(d.data.group){
+                case "Employment":
+                  analytics_group = "employment";
+                  break;
+                case "Employee Compensation":
+                  analytics_group = "employmeecompensation";
+                  break;
+                case "Manufacturing Employment":
+                  analytics_group = "manufacturingemployment";
+                  break;
+                case "Manufacturing Employee Compensation":
+                  analytics_group = "manufacturingemployeecompensation";
+                  break;
+                case "Capital Expenditures":
+                  analytics_group = "capital expenditures";
+                  break;
+                case "Industrial R&D":
+                  analytics_group = "industrialrd";
+                  break;
+                case "U.S. Exports":
+                  analytics_group = "usexports";
+                  break;
+                case "U.S. Imports":
+                  analytics_group = "usimports";
+                  break;
+              }
+              analytics('hover', analytics_text + "_" + analytics_group);
 
           // Replace hard coded vals (50, 90) with 50% of the tooltip wioth and height + a top buffer
                 tooltip
