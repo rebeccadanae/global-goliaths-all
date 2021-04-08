@@ -437,9 +437,10 @@
                 .style('display', 'block')
             })
             .on('mousemove', function () { // update tooltip content, line, circles and text when mouse moves
+
               var mouse = d3.mouse(this)
 
-
+              analytics('hover', 'multinational_parent_share')
               d3.selectAll(".mouse-per-line")
                 .attr("transform", function (d, i) {
                   var xDate = xScale.invert(mouse[0]) // use 'invert' to get date corresponding to distance from mouse position relative to svg
@@ -699,7 +700,7 @@
               })
               .on('mousemove', function () { // update tooltip content, line, circles and text when mouse moves
                 var mouse = d3.mouse(this)
-
+                analytics('hover', 'share_of_employment_foreign_multinationals')
 
                 d3.selectAll(".mouse-per-line")
                   .attr("transform", function (d, i) {
@@ -952,6 +953,7 @@
 
                                    // function that adds tooltip on hover
                                    function tipMove() {
+                                     analytics('hover', 'total_rd_spending_multinationals_foreign_affiliates');
                                        // below code finds the date by
                                      //ing and
                                        // stores the x and y coordinate as variables
@@ -1054,6 +1056,7 @@
             .attr("y", function(d) { return y(d.area); })
             .attr("width", function(d) { return x(d.value); })
             .on("mousemove", function(d){
+              analytics('hover', 'foreign_activity_tax_havens')
           // Replace hard coded vals (50, 90) with 50% of the tooltip wioth and height + a top buffer
                 tooltip
                   .style("left", d3.event.pageX - 40 + "px")
