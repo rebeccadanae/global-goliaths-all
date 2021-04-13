@@ -43,7 +43,7 @@
         ;
     var tooltip = d3.select("body").append("div").attr("class", "toolTip");
     // Parse the Data
-    d3.csv("assets/fig_1-1_data.csv", function(data) {
+    d3.csv("https://c24215cec6c97b637db6-9c0895f07c3474f6636f95b6bf3db172.ssl.cf1.rackcdn.com/interactives/2021/global_goliaths/assets/fig_1-1_data.csv", function(data) {
 
       // List of subgroups = header of the csv files = soil condition here
       var subgroups = data.columns.slice(1)
@@ -266,7 +266,7 @@
         .domain(category)
         .range(["#003A70", "#f26d00"])
 
-      d3.csv("assets/fig_1-6_data.csv", data => {
+      d3.csv("https://c24215cec6c97b637db6-9c0895f07c3474f6636f95b6bf3db172.ssl.cf1.rackcdn.com/interactives/2021/global_goliaths/assets/fig_1-6_data.csv", data => {
 
         var res = data.map((d,i) => {
           return {
@@ -548,7 +548,7 @@
           .domain(category)
           .range(["#003A70"])
 
-        d3.csv("assets/fig_1-7_data.csv", data => {
+        d3.csv("https://c24215cec6c97b637db6-9c0895f07c3474f6636f95b6bf3db172.ssl.cf1.rackcdn.com/interactives/2021/global_goliaths/assets/fig_1-7_data.csv", data => {
 
           var res = data.map((d,i) => {
             return {
@@ -819,7 +819,7 @@
        const tooltipWidth = 300;
 
 
-       d3.csv("assets/rd_data.csv", function(data) {
+       d3.csv("https://c24215cec6c97b637db6-9c0895f07c3474f6636f95b6bf3db172.ssl.cf1.rackcdn.com/interactives/2021/global_goliaths/assets/rd_data.csv", function(data) {
 
          // group the data: one array for each value of the X axis.
          var sumstat = d3.nest()
@@ -1030,7 +1030,7 @@
 
 
         var width = width - margin.left - margin.right,
-        graphRatio = .6,
+        graphRatio = .7,
         height = width * graphRatio;
 
         ;
@@ -1042,7 +1042,7 @@
     var g = svg.append("g")
     		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.json("assets/fig_11-1_data.json", function(error, data) {
+    d3.json("https://c24215cec6c97b637db6-9c0895f07c3474f6636f95b6bf3db172.ssl.cf1.rackcdn.com/interactives/2021/global_goliaths/assets/fig_11-1_data.json", function(error, data) {
       	if (error) throw error;
 
       	data.sort(function(a, b) { return a.value - b.value; });
